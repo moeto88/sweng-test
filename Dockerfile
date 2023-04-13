@@ -1,10 +1,10 @@
 FROM registry.access.redhat.com/ubi9/ubi:9.1.0-1750
 
-WORKDIR /architecture-center-input-form
+WORKDIR /sweng-test
 
 COPY . .
 
-ENV PATH /architecture-center-input-form:$PATH
+ENV PATH /sweng-test
 
 ENV NODE_OPTIONS="--max-old-space-size=8192"
 
@@ -22,7 +22,7 @@ EXPOSE 5297
 #EXPOSE 4621
 
 RUN chmod +x start.sh
-RUN chmod -R 777 /architecture-center-input-form
+RUN chmod -R 777 /sweng-test
 
 CMD start.sh
 # gunicorn app:app -b 0.0.0.0:5297 -w 8 -k uvicorn.workers.UvicornWorker & yarn dev
